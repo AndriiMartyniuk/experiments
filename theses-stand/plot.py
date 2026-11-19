@@ -7,7 +7,7 @@ Per repetition (raw/<run-id>/rep<i>/): event-log/*.jsonl, run.json, emulator-met
 A device counts as recovered once, after the drop, it is registered again AND every one of its sensors is observed
 again (registered event + `sensors` successful observe_done events of that registration).
 
-Outputs: figure.png (300 dpi) + figure.svg, summary.json, summary.md.
+Outputs: figure.png (300 dpi), summary.json, summary.md.
 """
 import argparse
 import glob
@@ -211,7 +211,6 @@ def main():
     bottom.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:g}".replace(".", ",")))
     fig.align_ylabels()
     fig.savefig(os.path.join(out, "figure.png"), dpi=300, bbox_inches="tight")
-    fig.savefig(os.path.join(out, "figure.svg"), bbox_inches="tight")
 
     # ---- numbers
     summary = {"run_id": run_id, "environment": env,
@@ -236,7 +235,7 @@ def main():
     with open(os.path.join(out, "summary.md"), "w") as f:
         f.write("\n".join(lines) + "\n")
     print("\n".join(lines))
-    print(f"\nwritten: {out}/figure.png, figure.svg, summary.json, summary.md")
+    print(f"\nwritten: {out}/figure.png, summary.json, summary.md")
 
 
 if __name__ == "__main__":

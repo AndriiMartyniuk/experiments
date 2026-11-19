@@ -3,7 +3,7 @@
 
 Usage: ../.venv/bin/python plot_series.py raw/<run-n1000> raw/<run-n2000> ... [--out results/<name>]
 
-Uses plot.analyse() for every repetition of every run. Figure (300 dpi PNG + SVG):
+Uses plot.analyse() for every repetition of every run. Figure (300 dpi PNG):
   (a) recovery curve per fleet size (the repetition with the median T(90 %));
   (b) T(90 %) of accepted connections and T(90 %) of recovered sessions against fleet size (median of the
       repetitions, whiskers = min..max), the difference labelled: the delay added by the gateway;
@@ -151,7 +151,6 @@ def main():
     for ax in (left, bottom):
         ax.xaxis.set_major_formatter(fmt_axis)
     fig.savefig(os.path.join(out, "figure.png"), dpi=300, bbox_inches="tight")
-    fig.savefig(os.path.join(out, "figure.svg"), bbox_inches="tight")
 
     env0 = runs[0][1]
     with open(os.path.join(out, "series.json"), "w") as f:

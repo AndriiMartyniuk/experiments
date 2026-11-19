@@ -67,7 +67,7 @@ results/<run-id>/
   components.json                  component parameter table
 ```
 
-Commit `results/<run-id>/` of every run that numbers are taken from; `raw/<run-id>/` is published as a release archive (git-ignored). The 20261114 runs are smoke runs (CPU numbers not usable), their raw data is not published.
+Commit `results/<run-id>/` of every run that numbers are taken from; `raw/<run-id>/` is published as a release archive (git-ignored).
 
 ## Caveats
 
@@ -78,5 +78,5 @@ Commit `results/<run-id>/` of every run that numbers are taken from; `raw/<run-i
 - Observe requests to one device are sent one at a time (java-coap congestion control per peer), so the observe
   phase grows linearly with *m* — a property of the stack, reported, not corrected.
 - Server-side durations start at TCP accept; client-side connect latency is in `emulator-metrics.txt`.
-- A smoke run on a laptop (5 devices) showed per-session CPU of 19–35 ms — dominated by noise and instrumentation at
-  that size; do not use smoke runs for numbers.
+- Per-session CPU from a few devices on a laptop is dominated by noise and instrumentation; it needs many sessions
+  (per-thread CPU) on an isolated host.

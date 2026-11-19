@@ -1,3 +1,10 @@
 .DS_Store
 __pycache__/
 *.pyc
+.venv/
+
+# raw run data is published as release archives (too large for git), see README
+theses-stand/raw/
+dist/
+e1-component-cost/raw/
+stand/event-log/
