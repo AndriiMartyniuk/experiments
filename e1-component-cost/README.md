@@ -67,7 +67,7 @@ results/<run-id>/
   components.json                  component parameter table
 ```
 
-Commit `raw/<run-id>/` and `results/<run-id>/` of every run that numbers are taken from.
+Commit `results/<run-id>/` of every run that numbers are taken from; `raw/<run-id>/` is published as a release archive (git-ignored). The 20261114 runs are smoke runs (CPU numbers not usable), their raw data is not published.
 
 ## Caveats
 

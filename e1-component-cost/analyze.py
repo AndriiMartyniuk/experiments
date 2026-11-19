@@ -67,6 +67,7 @@ def load_events(config_dir):
 
 def sessions_of(events, t_measure_start_us, m):
     """Group events by connection; one session = one connection that registered."""
+    has_coap_log = any(e["event"] == "coap_message" for e in events)
     by_conn = defaultdict(list)
     for e in events:
         if e.get("conn"):
@@ -112,9 +113,11 @@ def sessions_of(events, t_measure_start_us, m):
             "recovery_ms": (recovered_t - accepted["t"]) / 1000 if recovered_t else None,
         }
         for phase, kinds in PHASE_KINDS.items():
-            row[f"coap_{phase}_bytes_in"] = sum(coap[("in", k)] for k in kinds)
-            row[f"coap_{phase}_bytes_out"] = sum(coap[("out", k)] for k in kinds)
-            row[f"coap_{phase}_messages"] = sum(coap_count[("in", k)] + coap_count[("out", k)] for k in kinds)
+            # without the per-message CoAP log (COAP_MESSAGE_LOG=false) these are unknown, not zero
+            row[f"coap_{phase}_bytes_in"] = sum(coap[("in", k)] for k in kinds) if has_coap_log else None
+            row[f"coap_{phase}_bytes_out"] = sum(coap[("out", k)] for k in kinds) if has_coap_log else None
+            row[f"coap_{phase}_messages"] = (sum(coap_count[("in", k)] + coap_count[("out", k)] for k in kinds)
+                                             if has_coap_log else None)
         # wire bytes after the handshake (CoAP phases incl. TLS record overhead); only for connections that carried
         # nothing but the recovery (dropped, not deregistered at the end of the run)
         if closed and tls and not deregistered and closed.get("bytesIn") is not None:
@@ -204,7 +207,7 @@ def main():
     with_obs = [s for s in measured if s["m"] > 0]
 
     def per_observation(s, key):
-        return s[key] / s["m"] if s["m"] else None
+        return s[key] / s["m"] if s["m"] and s[key] is not None else None
 
     components = {
         "tls_full": {
