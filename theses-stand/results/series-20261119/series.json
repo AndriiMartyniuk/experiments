@@ -1,0 +1,545 @@
+{
+  "environment": {
+    "run_id": "20261119-docker-n1000",
+    "finished": "2026-11-19T11:56:33Z",
+    "parameters": {
+      "devices": 1000,
+      "sensors": 2,
+      "repetitions": 3,
+      "connect_rate": 500,
+      "reconnect_strategy": "DECORRELATED_JITTER",
+      "base_delay": "200ms",
+      "max_delay": "5s",
+      "transport": "coaps+tcp (TLS 1.2, mutual X.509, session resumption on)",
+      "sample_period": "1s",
+      "placement": "IN_MEMORY",
+      "dispatch": "SINGLE",
+      "io_threads": 4,
+      "emulator_io_threads": "0 (0 = 2 x CPUs)",
+      "coap_message_log": false,
+      "probe_observe_timeout": "10s",
+      "probe_tls_handshake_timeout": "10s",
+      "emulator_registration_timeout": "10s",
+      "emulator_tls_handshake_timeout": "10s",
+      "emulator_connect_timeout": "5s",
+      "sample_period_s": 0.1,
+      "probe_backlog": 4096,
+      "probe_java_opts": "-Xmx1g",
+      "emulator_java_opts": "-Xmx2g",
+      "disturbance": "all connections closed at once, no Deregister"
+    },
+    "versions": {
+      "gateway_probe": "d1d050d",
+      "gateway_probe_dirty": true,
+      "fleet_emulator": "1fec1a8",
+      "fleet_emulator_dirty": true,
+      "lwm2m_objects": "64c81cb",
+      "experiments": "c4dfa87",
+      "experiments_dirty": true,
+      "image_jre": "eclipse-temurin:25-jre"
+    },
+    "host": {
+      "os": "Darwin 27.2.0 arm64",
+      "cpu": "Apple M1 Pro",
+      "runtime": "docker: Docker Desktop, kernel 6.6.12-linuxkit, 4 CPUs, 5162926080 bytes memory for the VM",
+      "somaxconn": "4096",
+      "tcp_max_syn_backlog": "4096",
+      "nofile": "1048576",
+      "other_containers_running_in_vm": 8,
+      "emulator_and_probe_on_same_host": true,
+      "network": "docker bridge network (probe and emulator containers)"
+    }
+  },
+  "runs": [
+    {
+      "run": "20261119-docker-n1000",
+      "devices": 1000,
+      "repetitions": 3,
+      "recovered": [
+        1000,
+        1000,
+        1000
+      ],
+      "t_rec_s": {
+        "50": [
+          1.321587,
+          1.22461,
+          1.304771
+        ],
+        "90": [
+          1.347124,
+          1.241825,
+          1.314355
+        ],
+        "99": [
+          1.349385,
+          1.244589,
+          1.316362
+        ],
+        "100": [
+          1.349523,
+          1.24472,
+          1.31657
+        ]
+      },
+      "t_accept_s": {
+        "50": [
+          0.572694,
+          0.49336,
+          0.523948
+        ],
+        "90": [
+          0.691065,
+          0.755628,
+          0.70717
+        ]
+      },
+      "cpu_peak_cores": [
+        {
+          "probe": 2.3500022411367754,
+          "emulator": 2.068964817416051
+        },
+        {
+          "probe": 2.1283783509489185,
+          "emulator": 1.7224890914877644
+        },
+        {
+          "probe": 2.1768714120628503,
+          "emulator": 1.780823034515192
+        }
+      ],
+      "dispatch_queue_peak": [
+        1416.0,
+        1104.0,
+        1484.0
+      ],
+      "address_reused": [
+        0,
+        0,
+        0
+      ],
+      "clock_offset_s": [
+        0.03381013870239258,
+        0.02763509750366211,
+        0.026779890060424805
+      ],
+      "observe_failures_after_drop": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unprocessed_coap_messages": [
+        0,
+        0,
+        0
+      ],
+      "warmup_complete": [
+        true,
+        true,
+        true
+      ],
+      "client_connect_failures": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tls_handshakes_resumed": [
+        1000,
+        1000,
+        1000
+      ]
+    },
+    {
+      "run": "20261119-docker-n2000",
+      "devices": 2000,
+      "repetitions": 3,
+      "recovered": [
+        2000,
+        2000,
+        2000
+      ],
+      "t_rec_s": {
+        "50": [
+          1.84788,
+          1.703347,
+          1.685692
+        ],
+        "90": [
+          1.86486,
+          1.721274,
+          1.704857
+        ],
+        "99": [
+          1.868569,
+          1.724532,
+          1.708136
+        ],
+        "100": [
+          1.868969,
+          1.735791,
+          1.708485
+        ]
+      },
+      "t_accept_s": {
+        "50": [
+          0.609529,
+          0.539784,
+          0.580836
+        ],
+        "90": [
+          0.727309,
+          0.8947,
+          0.761831
+        ]
+      },
+      "cpu_peak_cores": [
+        {
+          "probe": 2.355767156952656,
+          "emulator": 1.6915424972273627
+        },
+        {
+          "probe": 2.5125612969004405,
+          "emulator": 2.0792089220524392
+        },
+        {
+          "probe": 2.372880742249375,
+          "emulator": 2.100002002717983
+        }
+      ],
+      "dispatch_queue_peak": [
+        2932.0,
+        2852.0,
+        2885.0
+      ],
+      "address_reused": [
+        0,
+        0,
+        0
+      ],
+      "clock_offset_s": [
+        0.02969813346862793,
+        0.027461767196655273,
+        0.027103900909423828
+      ],
+      "observe_failures_after_drop": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unprocessed_coap_messages": [
+        0,
+        0,
+        0
+      ],
+      "warmup_complete": [
+        true,
+        true,
+        true
+      ],
+      "client_connect_failures": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tls_handshakes_resumed": [
+        2000,
+        2000,
+        2000
+      ]
+    },
+    {
+      "run": "20261119-docker-n3000b",
+      "devices": 3000,
+      "repetitions": 3,
+      "recovered": [
+        3000,
+        3000,
+        3000
+      ],
+      "t_rec_s": {
+        "50": [
+          2.573955,
+          2.733695,
+          3.180868
+        ],
+        "90": [
+          2.603473,
+          2.777567,
+          3.211108
+        ],
+        "99": [
+          2.61095,
+          2.784834,
+          3.216482
+        ],
+        "100": [
+          2.611818,
+          2.786669,
+          3.217134
+        ]
+      },
+      "t_accept_s": {
+        "50": [
+          0.681876,
+          0.655113,
+          0.596424
+        ],
+        "90": [
+          0.8379,
+          1.101434,
+          1.341389
+        ]
+      },
+      "cpu_peak_cores": [
+        {
+          "probe": 2.4390224613384226,
+          "emulator": 2.2818802754135916
+        },
+        {
+          "probe": 2.4120588450244074,
+          "emulator": 2.2222208093722813
+        },
+        {
+          "probe": 2.508360995999512,
+          "emulator": 2.2297297009941213
+        }
+      ],
+      "dispatch_queue_peak": [
+        5180.0,
+        4942.0,
+        5104.0
+      ],
+      "address_reused": [
+        0,
+        0,
+        0
+      ],
+      "clock_offset_s": [
+        0.03205394744873047,
+        0.1425008773803711,
+        0.030714988708496094
+      ],
+      "observe_failures_after_drop": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unprocessed_coap_messages": [
+        0,
+        0,
+        0
+      ],
+      "warmup_complete": [
+        true,
+        true,
+        true
+      ],
+      "client_connect_failures": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tls_handshakes_resumed": [
+        3000,
+        3000,
+        3000
+      ]
+    },
+    {
+      "run": "20261119-docker-n4000",
+      "devices": 4000,
+      "repetitions": 3,
+      "recovered": [
+        4000,
+        4000,
+        4000
+      ],
+      "t_rec_s": {
+        "50": [
+          2.753459,
+          3.193165,
+          3.709902
+        ],
+        "90": [
+          2.807477,
+          3.236835,
+          3.746401
+        ],
+        "99": [
+          2.81827,
+          3.247471,
+          3.75157
+        ],
+        "100": [
+          2.819487,
+          3.248648,
+          3.752055
+        ]
+      },
+      "t_accept_s": {
+        "50": [
+          0.676617,
+          0.581759,
+          0.759027
+        ],
+        "90": [
+          0.815384,
+          1.243172,
+          0.918864
+        ]
+      },
+      "cpu_peak_cores": [
+        {
+          "probe": 2.5499993920327584,
+          "emulator": 2.049999511242048
+        },
+        {
+          "probe": 2.37623596341102,
+          "emulator": 2.3500022411367754
+        },
+        {
+          "probe": 2.7093586894734334,
+          "emulator": 2.6984142506272955
+        }
+      ],
+      "dispatch_queue_peak": [
+        6461.0,
+        6526.0,
+        6635.0
+      ],
+      "address_reused": [
+        43,
+        0,
+        13
+      ],
+      "clock_offset_s": [
+        0.0306699275970459,
+        0.04144406318664551,
+        0.033841848373413086
+      ],
+      "observe_failures_after_drop": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unprocessed_coap_messages": [
+        0,
+        0,
+        0
+      ],
+      "warmup_complete": [
+        true,
+        true,
+        true
+      ],
+      "client_connect_failures": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tls_handshakes_resumed": [
+        4000,
+        4000,
+        4000
+      ]
+    },
+    {
+      "run": "20261119-docker-n5000",
+      "devices": 5000,
+      "repetitions": 3,
+      "recovered": [
+        5000,
+        5000,
+        5000
+      ],
+      "t_rec_s": {
+        "50": [
+          4.218795,
+          3.272906,
+          3.295264
+        ],
+        "90": [
+          4.319224,
+          3.360146,
+          3.413154
+        ],
+        "99": [
+          4.334784,
+          3.367281,
+          3.421749
+        ],
+        "100": [
+          4.335634,
+          3.368584,
+          3.424245
+        ]
+      },
+      "t_accept_s": {
+        "50": [
+          0.877107,
+          0.731782,
+          0.667793
+        ],
+        "90": [
+          0.966467,
+          0.93236,
+          1.251553
+        ]
+      },
+      "cpu_peak_cores": [
+        {
+          "probe": 2.2388062463302894,
+          "emulator": 2.60000041325894
+        },
+        {
+          "probe": 2.500000046748767,
+          "emulator": 2.261305167210411
+        },
+        {
+          "probe": 2.60000041325894,
+          "emulator": 1.8333336247338556
+        }
+      ],
+      "dispatch_queue_peak": [
+        9157.0,
+        8418.0,
+        8867.0
+      ],
+      "address_reused": [
+        49,
+        37,
+        107
+      ],
+      "clock_offset_s": [
+        0.04114198684692383,
+        0.038475990295410156,
+        0.045037031173706055
+      ],
+      "observe_failures_after_drop": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unprocessed_coap_messages": [
+        0,
+        0,
+        0
+      ],
+      "warmup_complete": [
+        true,
+        true,
+        true
+      ],
+      "client_connect_failures": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tls_handshakes_resumed": [
+        5000,
+        5000,
+        5000
+      ]
+    }
+  ]
+}
